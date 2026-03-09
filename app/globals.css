@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: #f8f7f4;
+  --surface-raised: #ffffff;
+  --surface-overlay: #ffffff;
+  --border: #e5e2db;
+  --text-primary: #1a1816;
+  --text-secondary: #6b6560;
+  --text-muted: #9e9992;
+  --accent: #1a1816;
+  --accent-light: #f0ede8;
+  --font-dm-sans: 'DM Sans', system-ui, sans-serif;
+  --font-dm-mono: 'DM Mono', monospace;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+}
+
+.dark {
+  --surface: #111110;
+  --surface-raised: #1c1b19;
+  --surface-overlay: #242320;
+  --border: #2e2d2a;
+  --text-primary: #f0ede8;
+  --text-secondary: #a09a93;
+  --text-muted: #6b6560;
+  --accent: #f0ede8;
+  --accent-light: #242320;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font-family: var(--font-dm-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  transition: background-color 0.2s, color 0.2s;
+  font-family: var(--font-dm-sans);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Smooth transitions */
+.transition-theme {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Number font */
+.font-numeric {
+  font-family: var(--font-dm-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Card base */
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* Custom recharts tooltip */
+.recharts-tooltip-wrapper .custom-tooltip {
+  background: var(--surface-overlay);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* Animated bar cursor */
+.recharts-bar-rectangle:hover { opacity: 0.85; cursor: pointer; }
+
+/* Input base */
+input[type='text'], input[type='number'], input[type='date'], select, textarea {
+  font-family: var(--font-dm-sans);
+}
+
+/* Progress bar */
+@keyframes progressGrow {
+  from { width: 0; }
+}
+.progress-bar { animation: progressGrow 0.6s ease-out; }
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, var(--surface-raised) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
