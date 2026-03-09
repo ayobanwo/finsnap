@@ -78,5 +78,6 @@ Next.js renders on the server, which has no concept of the user's stored theme. 
 4.2  Bar Chart Click → Month Navigation
 Recharts' onClick on <BarChart> returns a synthetic event with activePayload nested several levels deep. Mapping each bar's monthKey into the data payload (not just the display label) was required so clicking "Mar" correctly sets "2025-03" rather than the short label string. This small data-shape decision made the drill-down feature trivial to implement.
 
+Time spent - 3days
 
 FinSnap  ·  Next.js 14 + TypeScript + Tailwind  ·  Built by Olubanwo Ayomide
